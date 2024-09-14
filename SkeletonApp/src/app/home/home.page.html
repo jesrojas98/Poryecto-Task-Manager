@@ -1,0 +1,71 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-title>
+      Task 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Ingrese su Rut" label-placement="floating" fill="solid" placeholder="Ingrese su Rut"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ingrese su Contraseña" label-placement="floating" fill="solid" type="password" ></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+
+  <ion-button [routerLink]="['/inicio']" class="ion-margin-start2" shape="round">Ingresa</ion-button>
+  <ion-button id="modal-trigger" [routerLink]="['/home']"class="ion-margin-start1" shape="round">Crear Usuario</ion-button>
+  
+  <ion-modal trigger="modal-trigger" #modal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Crear Usuario</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      
+      <ion-card>
+        <ion-card-content>
+          Crear Usuario
+      <ion-input label="Nombre" label-placement="floating" fill="solid" placeholder="Ingrese su Nombre"></ion-input>
+      <ion-input label="Apellido" label-placement="floating" fill="solid" placeholder="Ingrese su Apellido"></ion-input>
+      <ion-input label="Rut" label-placement="floating" fill="solid" placeholder="Ingrese su Rut"></ion-input>
+      <ion-input label="Ingrese su Telefono" label-placement="floating" fill="solid" type="tel" placeholder="+569"></ion-input>
+      <ion-input
+        type="email"
+        fill="solid"
+        label="Email"
+        placeholder="Ingrese un correo valido"
+        labelPlacement="floating"
+        errorText="Correo Invalido"
+        ngModel
+        email></ion-input>
+        <ion-button id="present-alert" slot="start" name="star">Crear Usuario</ion-button>
+<ion-alert
+  trigger="present-alert"
+  header="Usuario creado Correctamente"
+  message="Será redireccionado al Inicio"
+  [buttons] ="alertButtons"
+></ion-alert>
+      </ion-card-content>
+      </ion-card>
+      </ion-header>
+    </ng-template>
+  </ion-modal>
+
+  
+</ion-content>

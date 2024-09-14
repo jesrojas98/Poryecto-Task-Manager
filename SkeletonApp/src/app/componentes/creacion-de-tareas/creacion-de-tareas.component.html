@@ -1,0 +1,49 @@
+<ion-card>
+  <ion-card-content>
+    Crear Tareas
+  
+  <ion-input label="Nombre de Tarea" label-placement="floating" fill="solid" placeholder="Nombre de Tarea"></ion-input>
+  <ion-input label="Descripción de Tarea" label-placement="floating" fill="solid" placeholder="Descripción de Tarea"></ion-input>
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header">
+        <ion-label>Fecha de Tarea</ion-label>
+        
+      </ion-item>
+      <div class="ion-padding" slot="content">   
+         <ion-datetime locale="cl-CL">
+        <span slot="time-label">Tiempo</span>
+      </ion-datetime></div>
+  
+    </ion-accordion>
+  </ion-accordion-group>
+  <br>
+  <ion-button class="ion-margin-start1" id="open-modal" color="medium">Pioridad de Tarea</ion-button>
+  <ion-modal #modal trigger="open-modal" [isOpen]="false" (didDismiss)="onDidDismiss($event)">
+    <ng-template>
+      <ion-toolbar>
+        <ion-buttons slot="start" >
+          <ion-button (click)="modal.dismiss(null, 'cancel')">Cancelar</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss(currentValue, 'confirm')">Listo</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-picker>
+        <ion-picker-column [value]="currentValue" (ionChange)="onIonChange($event)">
+          <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+          <ion-picker-column-option value="1">1</ion-picker-column-option>
+          <ion-picker-column-option value="2">2</ion-picker-column-option>
+          <ion-picker-column-option value="3">3</ion-picker-column-option>
+          <ion-picker-column-option value="4">4</ion-picker-column-option>
+        </ion-picker-column>
+      </ion-picker>
+    </ng-template>
+  </ion-modal>
+  </ion-card-content>
+  </ion-card>
+  <br>
+  <ion-button class="ion-margin-start2">
+  <ion-icon slot="start" name="star"></ion-icon>
+    Guardar Tarea
+  </ion-button>
